@@ -1,0 +1,19 @@
+// Memory Management in GO
+
+1. Memory Allocation and deAllocation happens automatically
+
+2. Methods used to Allocation
+ ---- new()-----                 ---- make() ----
+ Allocate memory but            Allocate memory and
+   not initialized                 initialized
+ 
+ You will get a memory           You will get a memory
+      Address                        Address
+    
+ Zerod Storage                     Non zerod Storage
+
+3. Garbage Collection happens automatically
+
+4. Out of scope or nil
+
+
