@@ -19,3 +19,5 @@ func main() {
 	defer fmt.Println("G")
 	// LIFO order is printed
 }
+
+// in the future we will understand the use cases of defer in GoLang
