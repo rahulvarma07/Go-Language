@@ -4,6 +4,7 @@
 // io - to write into it
 // ioutils - to read the file (depricated)
 // os.readfiles - to read the file
+// os.Remove - to delete the file..
 
 package main
 
@@ -20,16 +21,19 @@ func main() {
 	file, err := os.Create("./file_operations.txt") //creating an txt file in current directory
 	CheckNilError(err)                              // Checks for error
 
+	defer file.Close() // Closes the file at the end of the program
+
 	// Writing into created file
 	content := "let's GO" // Content to be written in File
 	operationWrite, err := io.WriteString(file, content)
 	CheckNilError(err)
 	fmt.Println("Created the file successfully", operationWrite)
-	// reding the content of the file
 
+	// reding the content of the file
 	reading, err := os.ReadFile("./file_operations.txt")
 	fmt.Println("The message inside the file is:", string(reading)) // Give in Bites converting into string using string() method
 
+	
 }
 
 // This function is used for checking the error
