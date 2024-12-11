@@ -45,8 +45,9 @@ func GetRequests() {
 	// So to overcome this we can use strings package provided by GO
 
 	var responseString strings.Builder
-	byteResponse, _ := responseString.Write(content)
-	fmt.Println(byteResponse) // Gives the byte count
+	//byteResponse, _ := responseString.Write(content)
+	responseString.Write(content)
+	//fmt.Println(byteResponse) // Gives the byte count
 	fmt.Println(responseString.String())
 }
 
