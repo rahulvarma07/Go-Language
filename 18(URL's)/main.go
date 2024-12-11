@@ -44,4 +44,5 @@ func main() {
 	// To convert it into a string
 	finURL := newCourseUrl.String()
 	fmt.Println(finURL)
+
 }
