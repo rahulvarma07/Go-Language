@@ -14,6 +14,7 @@ import (
 
 func main() {
 	fmt.Println("Let's understand how to do POSTFORM Request's")
+	postFormReq()
 }
 
 func postFormReq() {
