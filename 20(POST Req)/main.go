@@ -15,8 +15,8 @@ func main() {
 }
 
 func PostRequests() {
-	const attendenceAPI string = "https://maya.technicalhub.io/node/api/get-attendance-by-rollno"
-	postData := strings.NewReader(`{"rool_no" : "22P31A04H1"}`) // Dont forget to use `` instead of ''
+	const attendenceAPI string = "Example.go"
+	postData := strings.NewReader(`{"rool_no" : "22P31A04H1"}`) // Dont forget to use ` ` instead of ' '
 
 	response, err := http.Post(attendenceAPI, "application/json", postData)
 	checkNilError(err)
