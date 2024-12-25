@@ -81,10 +81,10 @@ func JsonDecode() {
 	// you want to store it in a (Map){key : value}
 	var receivedData map[string]interface{}
 	json.Unmarshal(jsonDataFromCall, &receivedData)
-	//fmt.Printf("%#v\n", receivedData)
+	fmt.Printf("%#v\n", receivedData)
 
 	// Access or loop throught the map's
-	for key, val := range receivedData {
-		fmt.Printf("The Key is %v & the Val is %v \n", key, val)
-	}
+	// for key, val := range receivedData {
+	// 	fmt.Printf("The Key is %v & the Val is %v \n", key, val)
+	// }
 }
