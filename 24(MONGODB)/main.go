@@ -13,7 +13,7 @@ import (
 	"go.mongodb.org/mongo-driver/v2/mongo/readpref"
 )
 
-const ConnectionString string = "mongodb+srv://rahulvarma070707:Db8DEVjpa0yWWloT@practice.dbxkl.mongodb.net/?retryWrites=true&w=majority&appName=Practice"
+const ConnectionString string = ""
 const DBName string = "Company_DataBase"
 const CollectionName = "Employee_data"
 
