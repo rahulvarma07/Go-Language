@@ -26,7 +26,7 @@ func (ed *EmployeeService) CreateNewEmployee(w http.ResponseWriter, r *http.Requ
 
 	w.Header().Add("Content-Type", "application/json")
 
-	defer r.Body.Close()                 // Closing the body at the very end
+	//defer r.Body.Close()                 // Closing the body at the very end
 	defer json.NewEncoder(w).Encode(res) // Sending the data at very end
 
 	// Creating a model Schema
@@ -74,7 +74,7 @@ func (ed *EmployeeService) FindTheEmployeeByID(w http.ResponseWriter, r *http.Re
 	// Creating a res struct
 	res := &EmpData{}
 
-	defer r.Body.Close()                 // Closing the res body once the task is done
+	//defer r.Body.Close()                 // Closing the res body once the task is done
 	defer json.NewEncoder(w).Encode(res) // encoding and sending the response..
 
 	// Taking the id into
@@ -105,7 +105,7 @@ func (ed *EmployeeService) DeleteOneEmployeeByID(w http.ResponseWriter, r *http.
 
 	res := &EmpData{}
 
-	defer r.Body.Close()
+	//defer r.Body.Close()
 	defer json.NewEncoder(w).Encode(res)
 
 	empRepo := controllers.EmployeeRepo{
@@ -133,7 +133,7 @@ func (ed *EmployeeService) UpdateOneEmployeeByID(w http.ResponseWriter, r *http.
 
 	res := &EmpData{}
 
-	defer r.Body.Close()
+	//defer r.Body.Close()
 	defer json.NewEncoder(w).Encode(res)
 
 	params := mux.Vars(r)["id"]

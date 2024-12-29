@@ -6,6 +6,8 @@ require go.mongodb.org/mongo-driver v1.17.1
 
 require github.com/gorilla/mux v1.8.1
 
+require github.com/montanaflynn/stats v0.7.1 // indirect
+
 require (
 	github.com/golang/snappy v0.0.4 // indirect
 	github.com/google/uuid v1.6.0

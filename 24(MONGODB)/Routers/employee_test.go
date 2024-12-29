@@ -13,6 +13,7 @@ import (
 	models "github.com/rahulvarma07/APIusingMONGO/Models"
 	"go.mongodb.org/mongo-driver/v2/mongo"
 	"go.mongodb.org/mongo-driver/v2/mongo/options"
+	"go.mongodb.org/mongo-driver/v2/mongo/readpref"
 )
 
 const connectionString = "mongodb+srv://rahulvarma070707:Db8DEVjpa0yWWloT@practice.dbxkl.mongodb.net/?retryWrites=true&w=majority&appName=Practice"
@@ -31,7 +32,7 @@ func connectToTheClient() *mongo.Client {
 
 	log.Println("Connection success")
 
-	err = mongoClient.Ping(context.Background(), nil)
+	err = mongoClient.Ping(context.Background(), readpref.Primary())
 
 	if err != nil {
 		log.Fatal(err)
