@@ -16,7 +16,8 @@ type ToDoData struct {
 
 // To Add a TODO to Database
 func (tdd *ToDoData) AddAToDo(dataToInsert *models.ToDoModel) (bool, error) {
-	res, err := tdd.Collection.InsertOne(context.Background(), dataToInsert)
+
+	res, err := tdd.Collection.InsertOne(context.TODO(), dataToInsert)
 
 	if err != nil {
 		log.Println("#CONTROLLER_LOGIC : There is an error in inserting")
@@ -31,7 +32,7 @@ func (tdd *ToDoData) AddAToDo(dataToInsert *models.ToDoModel) (bool, error) {
 func (tdd *ToDoData) GetOneByID(todoID string) (*models.ToDoModel, error) {
 	var res models.ToDoModel
 
-	err := tdd.Collection.FindOne(context.Background(), bson.M{"todo_id": todoID}).Decode(&res)
+	err := tdd.Collection.FindOne(context.Background(), bson.M{"task_id": todoID}).Decode(&res)
 
 	if err != nil {
 		log.Println("#CONTROLLER_LOGIC There is an error")
@@ -74,7 +75,7 @@ func (tdd *ToDoData) UpdateANote(ToDoId string, dataToBeUpdated *models.ToDoMode
 		},
 	}
 
-	res, err := tdd.Collection.UpdateOne(context.Background(), bson.M{"todo_id": ToDoId}, update)
+	res, err := tdd.Collection.UpdateOne(context.Background(), bson.M{"task_id": ToDoId}, update)
 
 	if err != nil {
 		log.Println("#CONTROLLER_LOGIC there is an error in updateing..")
@@ -87,7 +88,7 @@ func (tdd *ToDoData) UpdateANote(ToDoId string, dataToBeUpdated *models.ToDoMode
 
 // To dlete one TODO from the Database
 func (tdd *ToDoData) DeleteOneTODO(ToDoId string) (bool, error) {
-	res, err := tdd.Collection.DeleteOne(context.Background(), bson.M{"todo_id": ToDoId})
+	res, err := tdd.Collection.DeleteOne(context.Background(), bson.M{"task_id": ToDoId})
 
 	if err != nil {
 		log.Println("#CONTROLLER_LOGIC there is an error in deleteing")

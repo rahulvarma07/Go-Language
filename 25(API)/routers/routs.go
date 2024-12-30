@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"log"
 	"net/http"
+	"time"
 
 	"github.com/google/uuid"
 	"github.com/gorilla/mux"
@@ -54,6 +55,8 @@ func (ed *EmployeeData) InsertTODO(w http.ResponseWriter, r *http.Request) {
 	}
 
 	EmpToBeInserted.ToDoID = newID
+	EmpToBeInserted.TimeStamp = time.DateTime
+	EmpToBeInserted.TaskCompleted = false
 
 	dataCollection := controllers.ToDoData{
 		Collection: ed.Collection,
@@ -64,7 +67,7 @@ func (ed *EmployeeData) InsertTODO(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		w.WriteHeader(http.StatusBadRequest)
 		log.Println("#ROUTER_ERROR There is an error in adding a new TODO to the database")
-		res.Data = ""
+		res.Data = "NODATA"
 		res.ReqType = "POST"
 		res.OperationSuccessfull = response
 		res.Err = err
@@ -149,6 +152,7 @@ func (ed *EmployeeData) FindTODOByID(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusBadRequest)
 		res.Data = "No data due to bad request"
 		res.Err = err
+		return
 	}
 
 	log.Println("Successfully found the TODO note")

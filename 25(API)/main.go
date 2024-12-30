@@ -52,7 +52,7 @@ func main() {
 
 	rout := mux.NewRouter()
 
-	rout.HandleFunc("/find-a-tood/{id}", ConnectionBase.FindTODOByID).Methods("GET")
+	rout.HandleFunc("/find-a-todo/{id}", ConnectionBase.FindTODOByID).Methods("GET")
 	rout.HandleFunc("/find-a-todo", ConnectionBase.FindAllTODO).Methods("GET")
 	rout.HandleFunc("/add-a-todo", ConnectionBase.InsertTODO).Methods("POST")
 	rout.HandleFunc("/update-a-todo", ConnectionBase.UpdateATODO).Methods("PUT")
