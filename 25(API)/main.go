@@ -9,6 +9,7 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/joho/godotenv"
 	"github.com/rahulvarma07/buildingAPI/routers"
+	"github.com/rs/cors"
 	"go.mongodb.org/mongo-driver/v2/mongo"
 	"go.mongodb.org/mongo-driver/v2/mongo/options"
 	"go.mongodb.org/mongo-driver/v2/mongo/readpref"
@@ -60,5 +61,15 @@ func main() {
 	rout.HandleFunc("/delete-todo/{id}", ConnectionBase.DeleteATODO).Methods("DELETE")
 	rout.HandleFunc("/delete-all-todo", ConnectionBase.DeleteAllTODO).Methods("DELETE")
 
-	log.Fatal(http.ListenAndServe(":9000", rout))
+	c := cors.New(cors.Options{
+		AllowOriginFunc: func(origin string) bool {
+			return true
+		},
+		AllowCredentials: true,
+		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE"},
+	})
+
+	handler := c.Handler(rout)
+
+	log.Fatal(http.ListenAndServe(":9000", handler))
 }

@@ -89,7 +89,7 @@ func (ed *EmployeeData) UpdateATODO(w http.ResponseWriter, r *http.Request) {
 
 	w.Header().Add("Content-Type", "application/json")
 
-	//defer r.Body.Close()
+	defer r.Body.Close()
 	defer json.NewEncoder(w).Encode(res)
 
 	var EmpToBeUpdated models.ToDoModel
@@ -185,7 +185,7 @@ func (ed *EmployeeData) FindAllTODO(w http.ResponseWriter, r *http.Request) {
 
 	log.Println("Successfully found the TODO note")
 
-	w.WriteHeader(http.StatusAccepted)
+	w.WriteHeader(http.StatusOK)
 	res.Data = response
 	res.Err = nil
 }
