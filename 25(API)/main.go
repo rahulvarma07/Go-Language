@@ -55,7 +55,8 @@ func main() {
 	rout.HandleFunc("/find-a-todo/{id}", ConnectionBase.FindTODOByID).Methods("GET")
 	rout.HandleFunc("/find-a-todo", ConnectionBase.FindAllTODO).Methods("GET")
 	rout.HandleFunc("/add-a-todo", ConnectionBase.InsertTODO).Methods("POST")
-	rout.HandleFunc("/update-a-todo", ConnectionBase.UpdateATODO).Methods("PUT")
+	rout.HandleFunc("/update-a-todo/{id}", ConnectionBase.UpdateATODO).Methods("PUT")
+	// TODO: DELETE NOT WORKING CHECK IT
 	rout.HandleFunc("/delete-todo/{id}", ConnectionBase.DeleteATODO).Methods("DELETE")
 	rout.HandleFunc("/delete-all-todo", ConnectionBase.DeleteAllTODO).Methods("DELETE")
 

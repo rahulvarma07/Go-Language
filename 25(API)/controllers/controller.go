@@ -86,7 +86,7 @@ func (tdd *ToDoData) UpdateANote(ToDoId string, dataToBeUpdated *models.ToDoMode
 	return true, nil
 }
 
-// To dlete one TODO from the Database
+// To delete one TODO from the Database
 func (tdd *ToDoData) DeleteOneTODO(ToDoId string) (bool, error) {
 	res, err := tdd.Collection.DeleteOne(context.Background(), bson.M{"task_id": ToDoId})
 
